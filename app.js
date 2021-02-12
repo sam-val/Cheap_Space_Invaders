@@ -3,9 +3,9 @@ const FPS = 10;
 const width = 15;
 const grid = document.querySelector(".grid");
 const start_pos = width*width - Math.floor(width/2) + 1;
-const INVADERS_WIDTH = 5;
-const INVADERS_HEIGHT = 3;
-const INVADERS_DELAY = 10; // unit = frames per second
+const INVADERS_WIDTH = 7;
+const INVADERS_HEIGHT = 5;
+const INVADERS_DELAY = 12; // unit = frames per second
 const FIRE_DELAY = 5;
 const SHOOT_DELAY = 1;
 
@@ -34,9 +34,11 @@ var shoot_delay_count = SHOOT_DELAY;
     grid.children[currentShooter].classList.add("shooter");
 
     // generate intial invaders:
-    setInvader(0,"..X..");
-    setInvader(1,"..X..");
-    setInvader(2,"..XX.");
+    setInvader(0,"..XX.");
+    setInvader(1,"X.X..");
+    setInvader(2,"X.XXX");
+    setInvader(3,".XXX.");
+    setInvader(4,".XXX.");
 
 
 // GAME FUNCTIONS:
