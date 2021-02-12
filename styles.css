@@ -1,0 +1,50 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+.main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(50px * 16);
+    height: calc(50px * 20);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.prompt {
+
+}
+
+.grid {
+    width: calc(50px * 15);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bg {
+    background: black;
+}
+
+.invader {
+    background: purple;
+    border: black;
+    border-style: solid;
+}
+
+.shooter {
+    background: blue;
+}
+
+.laser {
+    background-color: orange;
+}
+
+.boom {
+    background-color: red;
+}
+
+
+
+
+
+
