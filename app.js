@@ -5,7 +5,7 @@ const grid = document.querySelector(".grid");
 const start_pos = width*width - Math.floor(width/2) + 1;
 const INVADERS_WIDTH = 7;
 const INVADERS_HEIGHT = 5;
-const INVADERS_DELAY = 12; // unit = frames per second
+const INVADERS_DELAY = 8; // unit = frames per second
 const FIRE_DELAY = 5;
 const SHOOT_DELAY = 15;
 
@@ -153,8 +153,11 @@ function undraw() {
     for (let x = 0; x < INVADERS_WIDTH; x++) {
         for (let y = 0; y < INVADERS_HEIGHT; y++) {
             let pos = invaders_index + (y*width + x);
-            if (grid.children[pos].classList.contains("invader")) {
-                grid.children[pos].classList.remove("invader");
+            if (is_invader(x,y)) {
+                if (grid.children[pos].classList.contains("invader")) {
+                    grid.children[pos].classList.remove("invader");
+                    
+                }
                 
             }
         }
@@ -208,7 +211,7 @@ function game() {
         for (let y = 0; y < INVADERS_HEIGHT; y++) {
             let pos = invaders_index + (y*width + x);
             if (is_invader(x,y)) {
-                if (pos === currentShooter) {
+                if ((pos+width) > (width*width) - 1) {
                     losing = true;
                 } else {
                     if (fire_balls.includes(pos)) {
