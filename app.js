@@ -7,7 +7,7 @@ const INVADERS_WIDTH = 7;
 const INVADERS_HEIGHT = 5;
 const INVADERS_DELAY = 8; // unit = frames per second
 const FIRE_DELAY = 5;
-const SHOOT_DELAY = 15;
+const SHOOT_DELAY = 8;
 
 
 var invaders_index = Math.floor(Math.random() * 8);
@@ -23,6 +23,9 @@ var shoot_delay_count = SHOOT_DELAY;
 var winning = false;
 var losing = false;
 
+var laser_sound = new Howl({
+    src: ['sounds/laser.mp3']
+});
 
     // make grid:
 for (let i =0; i < width*width; i++) {
@@ -139,6 +142,8 @@ function fire(e) {
         fire_balls.push(ball_pos);
         
         shoot_delay_count = 0;
+        laser_sound.play();
+
     }
 }
 function undraw() {
@@ -265,7 +270,7 @@ document.addEventListener("keydown", (e) => {
 });
 
     // FIREEEEEEEEE:
-document.addEventListener("keyup", (e) => {
+document.addEventListener("keypress", (e) => {
     if (e.key == " ") {
         fire(e);
     }
